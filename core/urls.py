@@ -19,6 +19,10 @@ from django.urls import path,include
 from . import views
 
 urlpatterns = [
-    path('home', views.home, name='home')
+    path('home', views.home, name='home'),
+    path('salvar', views.salvar, name='salvar'),
+    path('editar/<int:id>', views.editar, name='editar')
+
+
 ]
 

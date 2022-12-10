@@ -2,17 +2,24 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Title</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
 	</head>
 	<body>
 	
-		<h1>Ola Mundo</h1>
 		<!--Imprimir variavel -->
-		{% for pessoa in pessoas %}
+
+		
 		<ul>
-			<li>{{pessoa.id}} - {{pessoa.nome}} <a href="{% url 'editar' pessoa.id %}">Editar</a></li>
-		</ul>
-		{%endfor%}
+			{% for pessoa in pessoas %}
+				<li> {{ pessoa.id }} - {{ pessoa.nome }}
+					<a href="{% url 'editar' pessoa.id %}">Editar</a>
+					<a href="{% url 'delete' pessoa.id %}">Deletar</a>
+				
+				</li>
+			{% endfor %}
+    	</ul>
 		
 		
 		<form action="{% url 'salvar' %}" method="POST">
@@ -20,7 +27,8 @@
 			<input type="text" name="nome">
 			<button type="submit">Salvar</button>
 		</form>
-	
+		
+
 	
 	
 	</body>
